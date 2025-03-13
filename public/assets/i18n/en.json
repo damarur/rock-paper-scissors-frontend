@@ -1,0 +1,20 @@
+{
+  "HEADER": {
+    "TITLE": "Rock Paper Scissors",
+    "CHANGE_LANGUAGE": "Change Language:",
+    "ENGLISH": "English",
+    "SPANISH": "Spanish"
+  },
+  "WELCOME": {
+    "TITLE": "Enter Player Name",
+    "NAME": "Name:",
+    "PLACEHOLDER": "Enter your name"
+  },
+  "PLAYER": {
+    "CHOOSE": "Choose:"
+  },
+  "BUTTONS": {
+    "SUBMIT": "Submit",
+    "CANCEL": "Cancel"
+  }
+}

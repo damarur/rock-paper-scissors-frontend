@@ -1,0 +1,20 @@
+{
+  "HEADER": {
+    "TITLE": "Piedra Papel Tijera",
+    "CHANGE_LANGUAGE": "Cambiar idioma:",
+    "ENGLISH": "Inglés",
+    "SPANISH": "Español"
+  },
+  "WELCOME": {
+    "TITLE": "Introduce tu apodo",
+    "NAME": "Nombre:",
+    "PLACEHOLDER": "Introduce tu nombre"
+  },
+  "PLAYER": {
+    "CHOOSE": "Elige:"
+  },
+  "BUTTONS": {
+    "SUBMIT": "Enviar",
+    "CANCEL": "Cancelar"
+  }
+}

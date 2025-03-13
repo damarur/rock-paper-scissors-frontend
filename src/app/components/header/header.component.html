@@ -1,1 +1,7 @@
-<mat-toolbar color="primary"> Rock Paper Scissors </mat-toolbar>
+<mat-toolbar color="primary"> {{ 'HEADER.TITLE' | translate }}
+  <div>
+    <h4>{{ 'HEADER.CHANGE_LANGUAGE' | translate }}</h4>
+    <button (click)="changeLanguage('en')">{{ 'HEADER.ENGLISH' | translate }}</button>
+    <button (click)="changeLanguage('es')">{{ 'HEADER.SPANISH' | translate }}</button>
+  </div>
+</mat-toolbar>

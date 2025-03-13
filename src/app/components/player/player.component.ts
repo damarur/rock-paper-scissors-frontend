@@ -11,10 +11,17 @@ import {
   faHandScissors,
 } from '@fortawesome/free-solid-svg-icons';
 import { MatFabButton } from '@angular/material/button';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-player',
-  imports: [CommonModule, MatCardModule, FontAwesomeModule, MatFabButton],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    FontAwesomeModule,
+    MatFabButton,
+    TranslateModule,
+  ],
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss'],
   inputs: ['name'],

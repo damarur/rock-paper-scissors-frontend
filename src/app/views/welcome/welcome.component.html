@@ -1,8 +1,8 @@
 <div>
-  <h2>Enter Player Name</h2>
+  <h2>{{ 'WELCOME.TITLE' | translate }}</h2>
   <form [formGroup]="playerForm" (ngSubmit)="submitName()">
-    <label for="player-name">Name:</label>
-    <input id="player-name" formControlName="name" placeholder="Enter your name" />
-    <button type="submit">Submit</button>
+    <label for="player-name">{{ 'WELCOME.NAME' | translate }}</label>
+    <input id="player-name" formControlName="name" placeholder="{{ 'WELCOME.PLACEHOLDER' | translate }}" />
+    <button type="submit">{{ 'BUTTONS.SUBMIT' | translate }}</button>
   </form>
 </div>

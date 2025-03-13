@@ -6,10 +6,11 @@ import { Observable } from 'rxjs';
 import { PlayerState } from '../../store/reducers/player.reducer';
 import { setPlayerName } from '../../store/actions/player.actions';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-welcome',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.scss',
 })
