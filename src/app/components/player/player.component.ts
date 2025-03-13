@@ -10,16 +10,17 @@ import {
   faHandRock,
   faHandScissors,
 } from '@fortawesome/free-solid-svg-icons';
+import { MatFabButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-player',
-  imports: [CommonModule, MatCardModule, FontAwesomeModule],
+  imports: [CommonModule, MatCardModule, FontAwesomeModule, MatFabButton],
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss'],
   inputs: ['name'],
 })
 export class PlayerComponent {
-  @Input() name: string | undefined;
+  @Input() name: string | null = null;
 
   constructor(library: FaIconLibrary) {
     library.addIcons(faHandPaper, faHandRock, faHandScissors);
