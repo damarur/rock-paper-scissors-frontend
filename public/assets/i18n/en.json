@@ -1,7 +1,7 @@
 {
   "HEADER": {
     "TITLE": "Rock Paper Scissors",
-    "CHANGE_LANGUAGE": "Change Language:",
+    "CHANGE_LANGUAGE": "Language",
     "ENGLISH": "English",
     "SPANISH": "Spanish"
   },
@@ -11,10 +11,19 @@
     "PLACEHOLDER": "Enter your name"
   },
   "PLAYER": {
-    "CHOOSE": "Choose:"
+    "CHOOSE": "Choose:",
+    "MACHINE": "Machine",
+    "CHOICE": {
+      "ROCK": "Rock",
+      "PAPER": "Paper",
+      "SCISSORS": "Scissors"
+    }
   },
   "BUTTONS": {
     "SUBMIT": "Submit",
     "CANCEL": "Cancel"
+  },
+  "ERRORS": {
+    "REQUIRED": "Field is required"
   }
 }

@@ -1,15 +1,19 @@
 <mat-card>
-  <mat-card-content>
-    <div class="content1">
-      <h2>{{ name }}</h2>
-      <button mat-fab color="primary" class="score">0</button>
-    </div>
+  <mat-card-title>{{ name }}</mat-card-title>
+  <mat-card-subtitle *ngIf="!machine">{{ 'PLAYER.CHOOSE' | translate }}</mat-card-subtitle>
 
-    <h3>{{ 'PLAYER.CHOOSE' | translate}}</h3>
-    <div class="content2">
-      <fa-icon [icon]="['fas', 'hand-rock']"></fa-icon>
-      <fa-icon [icon]="['fas', 'hand-paper']"></fa-icon>
-      <fa-icon [icon]="['fas', 'hand-scissors']"></fa-icon>
+  <mat-card-content>
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center" class="content">
+      <button [disabled]="machine" mat-icon-button matTooltip="{{ 'PLAYER.CHOICE.ROCK' | translate }}" (click)="choose('ROCK')">
+        <fa-icon [icon]="['fas', 'hand-rock']"></fa-icon>
+      </button>
+      <button [disabled]="machine" mat-icon-button matTooltip="{{ 'PLAYER.CHOICE.PAPER' | translate }}" (click)="choose('PAPER')">
+        <fa-icon [icon]="['fas', 'hand-paper']"></fa-icon>
+      </button>
+      <button [disabled]="machine" mat-icon-button matTooltip="{{ 'PLAYER.CHOICE.SCISSORS' | translate }}" (click)="choose('SCISSORS')">
+        <fa-icon [icon]="['fas', 'hand-scissors']"></fa-icon>
+      </button>
     </div>
   </mat-card-content>
+
 </mat-card>

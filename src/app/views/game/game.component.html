@@ -1,4 +1,4 @@
 <div class="content">
   <app-player [name]="(playerName$ | async)"></app-player>
-  <app-player [name]="'Machine'"></app-player>
+  <app-player [name]="'PLAYER.MACHINE' | translate" [machine]="true"></app-player>
 </div>

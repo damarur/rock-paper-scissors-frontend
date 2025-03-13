@@ -1,16 +1,33 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { PlayerState } from '../../store/reducers/player.reducer';
 import { setPlayerName } from '../../store/actions/player.actions';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-welcome',
-  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.scss',
 })
@@ -24,7 +41,7 @@ export class WelcomeComponent {
     private readonly router: Router
   ) {
     this.playerForm = this.fb.group({
-      name: [''],
+      name: ['', Validators.required],
     });
     this.player$ = this.store.select(state => state.player);
   }

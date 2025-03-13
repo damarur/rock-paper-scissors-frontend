@@ -5,8 +5,7 @@ import {
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-import { provideStore, StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
+import { provideStore } from '@ngrx/store';
 import {
   HttpClient,
   provideHttpClient,
@@ -28,7 +27,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideStore(),
+    provideStore({ player: playerReducer, game: gameReducer }),
     provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom(
       TranslateModule.forRoot({
@@ -40,9 +39,7 @@ export const appConfig: ApplicationConfig = {
         defaultLanguage: 'en',
         isolate: false,
         useDefaultLang: true,
-      }),
-      StoreModule.forRoot({ player: playerReducer, game: gameReducer }),
-      EffectsModule.forRoot([])
+      })
     ),
   ],
 };

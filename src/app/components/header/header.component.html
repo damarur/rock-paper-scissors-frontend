@@ -1,7 +1,8 @@
-<mat-toolbar color="primary"> {{ 'HEADER.TITLE' | translate }}
-  <div>
-    <h4>{{ 'HEADER.CHANGE_LANGUAGE' | translate }}</h4>
-    <button (click)="changeLanguage('en')">{{ 'HEADER.ENGLISH' | translate }}</button>
-    <button (click)="changeLanguage('es')">{{ 'HEADER.SPANISH' | translate }}</button>
-  </div>
+<mat-toolbar color="primary" role="heading">
+  <span>{{ 'HEADER.TITLE' | translate }}</span>
+  <span class="spacer"></span>
+    <mat-select #langSelect [(value)]="selectedLanguage" (selectionChange)="changeLanguage(langSelect.value)" placeholder="{{ 'HEADER.CHANGE_LANGUAGE' | translate }}">
+      <mat-option [value]="'en'">{{ 'HEADER.ENGLISH' | translate }}</mat-option>
+      <mat-option [value]="'es'">{{ 'HEADER.SPANISH' | translate }}</mat-option>
+    </mat-select>
 </mat-toolbar>

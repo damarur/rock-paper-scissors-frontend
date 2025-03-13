@@ -10,8 +10,9 @@ import {
   faHandRock,
   faHandScissors,
 } from '@fortawesome/free-solid-svg-icons';
-import { MatFabButton } from '@angular/material/button';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatIconButton } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-player',
@@ -19,8 +20,9 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     MatCardModule,
     FontAwesomeModule,
-    MatFabButton,
     TranslateModule,
+    MatIconButton,
+    MatTooltip,
   ],
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss'],
@@ -28,8 +30,13 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class PlayerComponent {
   @Input() name: string | null = null;
+  @Input() machine: boolean = false;
 
   constructor(library: FaIconLibrary) {
     library.addIcons(faHandPaper, faHandRock, faHandScissors);
+  }
+
+  choose(choice: string) {
+    alert(choice);
   }
 }

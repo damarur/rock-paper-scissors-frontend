@@ -1,7 +1,7 @@
 {
   "HEADER": {
     "TITLE": "Piedra Papel Tijera",
-    "CHANGE_LANGUAGE": "Cambiar idioma:",
+    "CHANGE_LANGUAGE": "Idioma",
     "ENGLISH": "Inglés",
     "SPANISH": "Español"
   },
@@ -11,10 +11,19 @@
     "PLACEHOLDER": "Introduce tu nombre"
   },
   "PLAYER": {
-    "CHOOSE": "Elige:"
+    "CHOOSE": "Elige:",
+    "MACHINE": "Máquina",
+    "CHOICE": {
+      "ROCK": "Piedra",
+      "PAPER": "Papel",
+      "SCISSORS": "Tijeras"
+    }
   },
   "BUTTONS": {
     "SUBMIT": "Enviar",
     "CANCEL": "Cancelar"
+  },
+  "ERRORS": {
+    "REQUIRED": "El campo es requerido"
   }
 }

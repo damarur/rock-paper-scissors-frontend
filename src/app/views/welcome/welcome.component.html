@@ -1,8 +1,16 @@
 <div>
   <h2>{{ 'WELCOME.TITLE' | translate }}</h2>
-  <form [formGroup]="playerForm" (ngSubmit)="submitName()">
-    <label for="player-name">{{ 'WELCOME.NAME' | translate }}</label>
-    <input id="player-name" formControlName="name" placeholder="{{ 'WELCOME.PLACEHOLDER' | translate }}" />
-    <button type="submit">{{ 'BUTTONS.SUBMIT' | translate }}</button>
+  <form [formGroup]="playerForm">
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'WELCOME.NAME' | translate }}</mat-label>
+      <input matInput formControlName="name" placeholder="{{ 'WELCOME.PLACEHOLDER' | translate }}" />
+      <mat-error *ngIf="playerForm.get('name')?.hasError('required')">
+        {{ 'ERRORS.REQUIRED' | translate }}
+      </mat-error>
+    </mat-form-field>
+    <button mat-fab extended color="primary" (click)="submitName()">
+      <span>{{ 'BUTTONS.SUBMIT' | translate }}</span>
+      <mat-icon>send</mat-icon>
+    </button>
   </form>
 </div>

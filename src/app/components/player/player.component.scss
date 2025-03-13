@@ -1,25 +1,9 @@
 .content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  button {
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: var(--hover-color, rgba(63, 81, 181, 0.1));
+    }
+  }
 }
 
-.content1 {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
-.content2 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.score {
-  margin-top: .5em;
-  margin-left: 2em;
-  font-size: 1.5em
-}
-
-.fa {
-  cursor: pointer;
-  font-size: 5em;
-}

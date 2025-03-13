@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from './components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     FontAwesomeModule,
     ReactiveFormsModule,
     HeaderComponent,
+    MatIconModule,
     RouterOutlet,
     TranslateModule,
   ],

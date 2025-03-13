@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 import { PlayerComponent } from '../../components/player/player.component';
 import { PlayerState } from '../../store/reducers/player.reducer';
 import { selectPlayerName } from '../../store/selectors/player.selectors';
 
 @Component({
   selector: 'app-game',
-  imports: [PlayerComponent, AsyncPipe],
+  imports: [PlayerComponent, AsyncPipe, TranslateModule],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss',
 })
