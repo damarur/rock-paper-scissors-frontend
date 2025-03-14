@@ -1,32 +1,28 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import {
-  addGameSuccess,
-  loadGame,
-  loadGameFailure,
-  loadGameSuccess,
+  playGame,
+  playGameFailure,
+  playGameSuccess,
 } from '../actions/game.actions';
 import { GameState, initialGameState } from '../states/game.state';
 
 export const gameReducer = createReducer(
   initialGameState,
-  on(loadGame, state => ({
+  on(playGame, (state, { game }) => ({
     ...state,
+    currentGame: game,
     loading: true,
     error: null,
   })),
-  on(loadGameSuccess, (state, { game }) => ({
+  on(playGameSuccess, (state, { gameResult }) => ({
     ...state,
+    gameResult,
     loading: false,
-    game,
   })),
-  on(loadGameFailure, (state, { error }) => ({
+  on(playGameFailure, (state, { error }) => ({
     ...state,
     loading: false,
     error,
-  })),
-  on(addGameSuccess, (state, { game }) => ({
-    ...state,
-    game: game,
   }))
 );
 

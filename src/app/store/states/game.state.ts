@@ -1,15 +1,15 @@
-import { Game } from '../models/game.model';
+import { Game, GameResult } from '../models/game.model';
 
 export interface GameState {
-  game: Game;
+  games: Game[];
+  currentGame?: Game;
+  gameResult?: GameResult;
   loading: boolean;
   error: string | null;
 }
 
 export const initialGameState: GameState = {
-  game: {
-    nickname: undefined,
-  },
+  games: [],
   loading: false,
   error: null,
 };

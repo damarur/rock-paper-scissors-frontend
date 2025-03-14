@@ -8,7 +8,6 @@ import {
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { PlayerState } from '../../store/reducers/player.reducer';
 import { setPlayerName } from '../../store/actions/player.actions';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -16,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { PlayerState } from '../../store/states/player.state';
 
 @Component({
   selector: 'app-welcome',

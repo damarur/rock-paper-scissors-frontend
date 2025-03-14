@@ -1,26 +1,20 @@
 import { createAction, props } from '@ngrx/store';
-import { Game } from '../models/game.model';
+import { Game, GameResult } from '../models/game.model';
 
-// Load Games
-export const loadGame = createAction('[Game] Load Games');
-
-// Load Games Success
-export const loadGameSuccess = createAction(
-  '[Game] Load Game Success',
+// Play Game
+export const playGame = createAction(
+  '[Game] Play Game',
   props<{ game: Game }>()
 );
 
-// Load Games Failure
-export const loadGameFailure = createAction(
-  '[Game] Load Games Failure',
+// Play Game Success
+export const playGameSuccess = createAction(
+  '[Game] Play Game Success',
+  props<{ gameResult: GameResult }>()
+);
+
+// Play Game Failure
+export const playGameFailure = createAction(
+  '[Game] Play Game Failure',
   props<{ error: string }>()
-);
-
-// Add a Game
-export const addGame = createAction('[Game] Add Game', props<{ game: Game }>());
-
-// Add Game Success
-export const addGameSuccess = createAction(
-  '[Game] Add Game Success',
-  props<{ game: Game }>()
 );

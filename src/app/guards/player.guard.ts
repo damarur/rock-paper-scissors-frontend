@@ -3,7 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, take } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PlayerState } from '../store/reducers/player.reducer';
+import { PlayerState } from '../store/states/player.state';
 
 @Injectable({
   providedIn: 'root',

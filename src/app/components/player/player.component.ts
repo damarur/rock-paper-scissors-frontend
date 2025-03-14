@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import {
@@ -29,14 +29,15 @@ import { MatTooltip } from '@angular/material/tooltip';
   inputs: ['name'],
 })
 export class PlayerComponent {
-  @Input() name: string | null = null;
+  @Input() name: string = '';
   @Input() machine: boolean = false;
+  @Output() choice = new EventEmitter<string>();
 
   constructor(library: FaIconLibrary) {
     library.addIcons(faHandPaper, faHandRock, faHandScissors);
   }
 
   choose(choice: string) {
-    alert(choice);
+    this.choice.emit(choice);
   }
 }

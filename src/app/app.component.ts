@@ -6,6 +6,9 @@ import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
+import { NgxSpinnerComponent, NgxSpinnerService } from 'ngx-spinner';
+import { Store } from '@ngrx/store';
+import { GameState } from './store/states/game.state';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +20,17 @@ import { HeaderComponent } from './components/header/header.component';
     MatIconModule,
     RouterOutlet,
     TranslateModule,
+    NgxSpinnerComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private readonly translate: TranslateService) {
+  constructor(
+    private readonly translate: TranslateService,
+    private readonly spinner: NgxSpinnerService,
+    private readonly store: Store<{ game: GameState }>
+  ) {
     this.translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
     if (browserLang != null) {
@@ -30,5 +38,15 @@ export class AppComponent {
         RegExp(/en|es/).exec(browserLang) ? browserLang : 'en'
       );
     }
+    this.store
+      .select(state => state.game)
+      .subscribe(game => {
+        if (game.loading) {
+          this.spinner.show();
+        } else {
+          // Set a timeout to simulate the backend takes some time
+          setTimeout(() => this.spinner.hide(), 500);
+        }
+      });
   }
 }

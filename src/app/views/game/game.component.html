@@ -1,4 +1,4 @@
 <div class="content">
-  <app-player [name]="(playerName$ | async)"></app-player>
+  <app-player [name]="name" (choice)="playGame($event)"></app-player>
   <app-player [name]="'PLAYER.MACHINE' | translate" [machine]="true"></app-player>
 </div>

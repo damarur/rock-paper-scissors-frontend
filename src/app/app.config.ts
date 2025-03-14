@@ -14,9 +14,13 @@ import {
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { routes } from './app.routes';
-import { playerReducer } from './store/reducers/player.reducer';
-import { gameReducer } from './store/reducers/game.reducer';
+import { reducer as playerReducer } from './store/reducers/player.reducer';
+import { reducer as gameReducer } from './store/reducers/game.reducer';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { provideEffects } from '@ngrx/effects';
+import { GameEffects } from './store/effects/game.effects';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function HttpLoaderFactory(http: HttpClient) {
   // Loads translations from `/assets/i18n`
@@ -29,7 +33,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideStore({ player: playerReducer, game: gameReducer }),
     provideHttpClient(withInterceptorsFromDi()),
+    provideEffects(GameEffects),
     importProvidersFrom(
+      BrowserAnimationsModule,
       TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,
@@ -39,7 +45,8 @@ export const appConfig: ApplicationConfig = {
         defaultLanguage: 'en',
         isolate: false,
         useDefaultLang: true,
-      })
+      }),
+      NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
     ),
   ],
 };
