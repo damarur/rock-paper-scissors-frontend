@@ -13,11 +13,11 @@ import { MatIconModule } from '@angular/material/icon';
 export class HeaderComponent {
   selectedLanguage: string = '';
   constructor(private readonly translate: TranslateService) {
-    this.selectedLanguage = translate.currentLang;
+    this.selectedLanguage = translate.currentLang ?? 'en';
   }
 
   changeLanguage(lang: string) {
-    console.log(lang);
+    this.selectedLanguage = lang;
     this.translate.use(lang);
   }
 }
