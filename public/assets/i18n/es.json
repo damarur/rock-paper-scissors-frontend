@@ -19,6 +19,11 @@
       "SCISSORS": "Tijeras"
     }
   },
+  "RESULT": {
+    "WINNER": "¡Has ganado! ¡Enhorabuena!",
+    "DRAW": "Empate en el marcador",
+    "LOSER": "Has perdido, ¡suerte para la próxima vez!"
+  },
   "BUTTONS": {
     "SUBMIT": "Enviar",
     "CANCEL": "Cancelar"

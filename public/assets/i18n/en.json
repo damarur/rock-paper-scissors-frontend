@@ -19,6 +19,11 @@
       "SCISSORS": "Scissors"
     }
   },
+  "RESULT": {
+    "WINNER": "You are the Winner! Congratulations!",
+    "DRAW": "It's a draw, meh!",
+    "LOSER": "You lost, better luck next time!"
+  },
   "BUTTONS": {
     "SUBMIT": "Submit",
     "CANCEL": "Cancel"

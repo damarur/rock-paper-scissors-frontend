@@ -18,6 +18,6 @@ export enum Choice {
 
 export enum Result {
   WIN = 'WIN',
-  LOSS = 'LOSS',
+  LOSE = 'LOSE',
   DRAW = 'DRAW',
 }

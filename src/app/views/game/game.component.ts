@@ -5,7 +5,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PlayerComponent } from '../../components/player/player.component';
 import { selectPlayerName } from '../../store/selectors/player.selectors';
 import { GameState } from '../../store/states/game.state';
-import { Choice, Game, GameResult } from '../../store/models/game.model';
+import {
+  Choice,
+  Game,
+  GameResult,
+  Result,
+} from '../../store/models/game.model';
 import {
   selectCurrentGame,
   selectError,
@@ -15,10 +20,11 @@ import {
 } from '../../store/selectors/game.selectors';
 import { playGame } from '../../store/actions/game.actions';
 import { PlayerState } from '../../store/states/player.state';
+import { WinnerComponent } from '../../components/winner/winner.component';
 
 @Component({
   selector: 'app-game',
-  imports: [PlayerComponent, TranslateModule],
+  imports: [PlayerComponent, TranslateModule, WinnerComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss',
 })
@@ -30,6 +36,7 @@ export class GameComponent implements OnInit {
   loading$: Observable<boolean>;
   error$: Observable<string | null>;
   name: string = '';
+  result: Result | undefined = undefined;
 
   constructor(
     private readonly store: Store<{ player: PlayerState; game: GameState }>
@@ -44,6 +51,9 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.playerName$.subscribe(name => (this.name = name));
+    this.gameResult$.subscribe(gameResult => {
+      this.result = gameResult?.result;
+    });
   }
 
   playGame(choice: string): void {

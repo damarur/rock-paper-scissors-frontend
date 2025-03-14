@@ -1,4 +1,5 @@
 <div class="content">
   <app-player [name]="name" (choice)="playGame($event)"></app-player>
+  <app-winner [result]="result"></app-winner>
   <app-player [name]="'PLAYER.MACHINE' | translate" [machine]="true"></app-player>
 </div>
