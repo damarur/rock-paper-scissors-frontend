@@ -4,13 +4,16 @@
 
   <mat-card-content>
     <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center" class="content">
-      <button [disabled]="machine" mat-icon-button matTooltip="{{ 'PLAYER.CHOICE.ROCK' | translate }}" (click)="choose('ROCK')">
+      <button [disabled]="machine" [ngClass]="{ 'selected': currentChoice === 'ROCK' }"
+              mat-icon-button matTooltip="{{ 'PLAYER.CHOICE.ROCK' | translate }}" (click)="choose('ROCK')">
         <fa-icon [icon]="['fas', 'hand-rock']"></fa-icon>
       </button>
-      <button [disabled]="machine" mat-icon-button matTooltip="{{ 'PLAYER.CHOICE.PAPER' | translate }}" (click)="choose('PAPER')">
+      <button [disabled]="machine" [ngClass]="{ 'selected': currentChoice === 'PAPER' }"
+              mat-icon-button matTooltip="{{ 'PLAYER.CHOICE.PAPER' | translate }}" (click)="choose('PAPER')">
         <fa-icon [icon]="['fas', 'hand-paper']"></fa-icon>
       </button>
-      <button [disabled]="machine" mat-icon-button matTooltip="{{ 'PLAYER.CHOICE.SCISSORS' | translate }}" (click)="choose('SCISSORS')">
+      <button [disabled]="machine" [ngClass]="{ 'selected': currentChoice === 'SCISSORS' }"
+              mat-icon-button matTooltip="{{ 'PLAYER.CHOICE.SCISSORS' | translate }}" (click)="choose('SCISSORS')">
         <fa-icon [icon]="['fas', 'hand-scissors']"></fa-icon>
       </button>
     </div>

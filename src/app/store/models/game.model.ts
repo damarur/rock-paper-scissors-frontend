@@ -5,8 +5,8 @@ export interface Game {
 
 export interface GameResult {
   nickname: string;
-  userChoice: Choice;
-  machineChoice: Choice;
+  user_choice: Choice;
+  machine_choice: Choice;
   result: Result;
 }
 
