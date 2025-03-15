@@ -44,8 +44,7 @@ export class AppComponent {
         if (game.loading) {
           this.spinner.show();
         } else {
-          // Set a timeout to simulate the backend takes some time
-          setTimeout(() => this.spinner.hide(), 500);
+          this.spinner.hide();
         }
       });
   }

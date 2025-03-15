@@ -23,7 +23,7 @@ export class PlayerGuard implements CanActivate {
           if (player.nickname) {
             return true;
           } else {
-            this.router.navigate(['/']);
+            this.router.navigate(['/welcome']);
             return false;
           }
         })

@@ -3,9 +3,9 @@ import { GameState } from '../states/game.state';
 
 export const selectGameState = createFeatureSelector<GameState>('game');
 
-export const selectGames = createSelector(
+export const selectUserStats = createSelector(
   selectGameState,
-  (state: GameState) => state.games
+  (state: GameState) => state.userStats
 );
 
 export const selectCurrentGame = createSelector(

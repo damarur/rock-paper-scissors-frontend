@@ -13,6 +13,7 @@
   "PLAYER": {
     "CHOOSE": "Choose:",
     "MACHINE": "Machine",
+    "SCORE": "Wins:",
     "CHOICE": {
       "ROCK": "Rock",
       "PAPER": "Paper",

@@ -1,6 +1,6 @@
 <div>
   <h2>{{ 'WELCOME.TITLE' | translate }}</h2>
-  <form [formGroup]="playerForm">
+  <form [formGroup]="playerForm" (submit)="submitName($event)">
     <mat-form-field appearance="fill">
       <mat-label>{{ 'WELCOME.NAME' | translate }}</mat-label>
       <input matInput formControlName="name" placeholder="{{ 'WELCOME.PLACEHOLDER' | translate }}" />
@@ -8,7 +8,7 @@
         {{ 'ERRORS.REQUIRED' | translate }}
       </mat-error>
     </mat-form-field>
-    <button mat-fab extended color="primary" (click)="submitName()">
+    <button mat-fab extended color="primary" (click)="submitName($event)">
       <span>{{ 'BUTTONS.SUBMIT' | translate }}</span>
       <mat-icon>send</mat-icon>
     </button>

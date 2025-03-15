@@ -1,7 +1,7 @@
 export interface PlayerState {
-  nickname: string | null;
+  nickname: string | undefined;
 }
 
 export const initialPlayerState: PlayerState = {
-  nickname: null,
+  nickname: undefined,
 };

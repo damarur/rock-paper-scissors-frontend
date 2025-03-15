@@ -9,4 +9,7 @@
 .selected {
   background-color: var(--selected-color, rgba(63, 81, 181, 0.4));
 }
-
+.title{
+  display: flex;
+  justify-content: space-between;
+}

@@ -21,6 +21,7 @@ import { provideEffects } from '@ngrx/effects';
 import { GameEffects } from './store/effects/game.effects';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PlayerEffects } from './store/effects/player.effects';
 
 export function HttpLoaderFactory(http: HttpClient) {
   // Loads translations from `/assets/i18n`
@@ -33,7 +34,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideStore({ player: playerReducer, game: gameReducer }),
     provideHttpClient(withInterceptorsFromDi()),
-    provideEffects(GameEffects),
+    provideEffects(GameEffects, PlayerEffects),
     importProvidersFrom(
       BrowserAnimationsModule,
       TranslateModule.forRoot({

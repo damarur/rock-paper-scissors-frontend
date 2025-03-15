@@ -46,6 +46,7 @@ import { Game, GameResult } from '../../store/models/game.model';
 })
 export class PlayerComponent implements OnInit, OnDestroy {
   @Input() name: string = '';
+  @Input() score: number | undefined = undefined;
   @Input() machine: boolean = false;
   @Output() choice = new EventEmitter<string>();
   currentGame$: Observable<Game | undefined>;

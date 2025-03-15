@@ -84,7 +84,7 @@ describe('GameComponent', () => {
       expect(name).toBe(initialState.player.name);
     });
 
-    component.games$.subscribe(games => {
+    component.userStats$.subscribe(games => {
       expect(games).toEqual(initialState.game.games);
     });
 

@@ -46,7 +46,8 @@ export class WelcomeComponent {
     this.player$ = this.store.select(state => state.player);
   }
 
-  submitName() {
+  submitName($event: Event) {
+    $event.preventDefault();
     const nickname = this.playerForm.get('name')?.value;
     if (nickname) {
       this.store.dispatch(setPlayerName({ nickname }));

@@ -1,7 +1,7 @@
-import { Game, GameResult } from '../models/game.model';
+import { Game, GameResult, UserStats } from '../models/game.model';
 
 export interface GameState {
-  games: Game[];
+  userStats?: UserStats;
   currentGame?: Game;
   gameResult?: GameResult;
   loading: boolean;
@@ -9,7 +9,6 @@ export interface GameState {
 }
 
 export const initialGameState: GameState = {
-  games: [],
   loading: false,
   error: null,
 };

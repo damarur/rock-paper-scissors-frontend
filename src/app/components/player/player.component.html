@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title>{{ name }}</mat-card-title>
+  <mat-card-title class="title"><span>{{ name }}</span><span *ngIf="score">{{ 'PLAYER.SCORE' | translate }} {{ score }}</span></mat-card-title>
   <mat-card-subtitle *ngIf="!machine">{{ 'PLAYER.CHOOSE' | translate }}</mat-card-subtitle>
 
   <mat-card-content>

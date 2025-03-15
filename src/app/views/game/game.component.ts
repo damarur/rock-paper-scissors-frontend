@@ -10,15 +10,16 @@ import {
   Game,
   GameResult,
   Result,
+  UserStats,
 } from '../../store/models/game.model';
 import {
   selectCurrentGame,
   selectError,
   selectGameResult,
-  selectGames,
   selectLoading,
+  selectUserStats,
 } from '../../store/selectors/game.selectors';
-import { playGame } from '../../store/actions/game.actions';
+import { getGames, playGame } from '../../store/actions/game.actions';
 import { PlayerState } from '../../store/states/player.state';
 import { WinnerComponent } from '../../components/winner/winner.component';
 
@@ -29,20 +30,21 @@ import { WinnerComponent } from '../../components/winner/winner.component';
   styleUrl: './game.component.scss',
 })
 export class GameComponent implements OnInit {
-  playerName$: Observable<string>;
-  games$: Observable<Game[]>;
+  playerName$: Observable<string | undefined>;
+  userStats$: Observable<UserStats | undefined>;
   currentGame$: Observable<Game | undefined>;
   gameResult$: Observable<GameResult | undefined>;
   loading$: Observable<boolean>;
   error$: Observable<string | null>;
   name: string = '';
   result: Result | undefined = undefined;
+  stats: UserStats | undefined = undefined;
 
   constructor(
     private readonly store: Store<{ player: PlayerState; game: GameState }>
   ) {
     this.playerName$ = this.store.select(selectPlayerName);
-    this.games$ = this.store.select(selectGames);
+    this.userStats$ = this.store.select(selectUserStats);
     this.currentGame$ = this.store.select(selectCurrentGame);
     this.gameResult$ = this.store.select(selectGameResult);
     this.loading$ = this.store.select(selectLoading);
@@ -50,9 +52,19 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.playerName$.subscribe(name => (this.name = name));
+    this.playerName$.subscribe(name => {
+      if (name) {
+        this.name = name;
+        this.store.dispatch(getGames({ nickname: name }));
+      }
+    });
     this.gameResult$.subscribe(gameResult => {
       this.result = gameResult?.result;
+    });
+    this.userStats$.subscribe(userStats => {
+      if (userStats) {
+        this.stats = userStats;
+      }
     });
   }
 

@@ -21,3 +21,10 @@ export enum Result {
   LOSE = 'LOSE',
   DRAW = 'DRAW',
 }
+
+export interface UserStats {
+  nickname: string;
+  wins: number;
+  losses: number;
+  draws: number;
+}
