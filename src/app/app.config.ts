@@ -9,7 +9,7 @@ import { provideStore } from '@ngrx/store';
 import {
   HttpClient,
   provideHttpClient,
-  withInterceptorsFromDi,
+  withInterceptors,
 } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -22,6 +22,7 @@ import { GameEffects } from './store/effects/game.effects';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlayerEffects } from './store/effects/player.effects';
+import { apiKeyInterceptor } from './interceptors/api-key.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
   // Loads translations from `/assets/i18n`
@@ -33,7 +34,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideStore({ player: playerReducer, game: gameReducer }),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withInterceptors([apiKeyInterceptor])),
     provideEffects(GameEffects, PlayerEffects),
     importProvidersFrom(
       BrowserAnimationsModule,
