@@ -1,8 +1,7 @@
-<mat-toolbar color="primary" role="heading">
-  <span>{{ 'HEADER.TITLE' | translate }}</span>
-  <span class="spacer"></span>
-    <mat-select #langSelect [(value)]="selectedLanguage" (selectionChange)="changeLanguage(langSelect.value)" placeholder="{{ 'HEADER.CHANGE_LANGUAGE' | translate }}">
-      <mat-option [value]="'en'">{{ 'HEADER.ENGLISH' | translate }}</mat-option>
-      <mat-option [value]="'es'">{{ 'HEADER.SPANISH' | translate }}</mat-option>
-    </mat-select>
+<mat-toolbar color="primary" role="heading" aria-level="1">
+  <span class="title">{{ 'HEADER.TITLE' | translate }}</span>
+  <mat-select #langSelect [(value)]="selectedLanguage" (selectionChange)="changeLanguage(langSelect.value)" placeholder="{{ 'HEADER.CHANGE_LANGUAGE' | translate }}">
+    <mat-option [value]="'en'">{{ 'HEADER.ENGLISH' | translate }}</mat-option>
+    <mat-option [value]="'es'">{{ 'HEADER.SPANISH' | translate }}</mat-option>
+  </mat-select>
 </mat-toolbar>
